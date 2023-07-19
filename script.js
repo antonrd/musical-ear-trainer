@@ -27,7 +27,10 @@ const numSemitones = 12;
 
 // Calculate the frequencies for each note
 const noteFrequencies = [];
-const noteLabels = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C^"];
+// const noteLabels = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C^"];
+// The sampled tone MP3 files are taken from https://github.com/fuhton/piano-mp3.
+const noteLabels = ["C4", "Db4", "D4", "Eb4", "E4", "F4", "Gb4", "G4", "Ab4", "A4", "Bb4", "B4", "C5"];
+
 for (let i = 0; i <= numSemitones; i++) {
   const frequency = referenceFrequency * Math.pow(2, i / 12);
   noteFrequencies.push(frequency);
@@ -39,8 +42,44 @@ function createAudioContext() {
   audioContext = new (window.AudioContext || window.webkitAudioContext)();
 }
 
-// Play a single piano note
+function noteToAudioFilePath(note) {
+  return `notes/${noteLabels[note]}.mp3`;
+}
+
 function playPianoNote(note) {
+  const sampledNotesToggle = document.getElementById('sampledNotesToggle');
+  const generatedNotesToggle = document.getElementById('generatedNotesToggle');
+
+  if (sampledNotesToggle.checked) {
+    playSampledPianoNote(note);
+  } else if (generatedNotesToggle.checked) {
+    playGeneratedPianoNote(note);
+  }
+}
+
+function playSampledPianoNote(note) {
+  const mp3File = noteToAudioFilePath(note);
+
+  if (mp3File) {
+    fetch(mp3File)
+      .then((response) => response.arrayBuffer())
+      .then((buffer) => audioContext.decodeAudioData(buffer))
+      .then((audioBuffer) => {
+        const source = audioContext.createBufferSource();
+        source.buffer = audioBuffer;
+        source.connect(audioContext.destination);
+        source.start();
+      })
+      .catch((error) => {
+        console.error('Error loading or playing the note:', error);
+      });
+  } else {
+    console.error('Invalid piano note:', note);
+  }
+}
+
+// Play a single piano note
+function playGeneratedPianoNote(note) {
   if (!audioContext) {
     console.error('AudioContext not created. Make sure it is created after a user gesture.');
     return;

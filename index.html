@@ -25,7 +25,9 @@
           select one from a pre-defined set. If a random
           melody is generated, you can select the number
           of notes and the scale to use. You can also leave
-          the scale to be randomly selected.
+          the scale to be randomly selected. The notes can
+          played using sampled notes or ones generated on
+          the fly.
         </p>
         <p><b>Once ready with the melody settings:</b>
           <ul>
@@ -49,6 +51,12 @@
       <label for="randomToggle">Random</label>
       <input type="radio" id="predefinedToggle" name="melodyToggle" value="predefined">
       <label for="predefinedToggle">Pre-defined</label>
+    </div>
+    <div class="toggle-container">
+      <input type="radio" id="sampledNotesToggle" name="noteTypeToggle" value="sampled" checked>
+      <label for="sampledNotesToggle">Sampled Piano</label>
+      <input type="radio" id="generatedNotesToggle" name="noteTypeToggle" value="generated">
+      <label for="generatedNotesToggle">Generated Sound</label>
     </div>
     <div class="random-notes-container">
       <label for="randomNotes">Number of notes:</label>

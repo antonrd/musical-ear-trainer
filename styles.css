@@ -1,5 +1,6 @@
 body {
   font-family: Arial, sans-serif;
+  font-size: 20px;
 }
 
 .notes-container {
@@ -7,15 +8,15 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .note {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background-color: #92d1aa;
   margin: 5px;
   cursor: pointer;
@@ -29,7 +30,7 @@ body {
 .toggle-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .toggle-container input[type="radio"] {
@@ -60,7 +61,7 @@ body {
 .scale-select-container {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .scale-select-container label {
@@ -70,7 +71,7 @@ body {
 
 #scale-select {
   font-family: 'Arial', sans-serif;
-  font-size: 14px;
+  font-size: 20px;
   padding: 8px;
   margin-top: 10px;
   border: none;
@@ -84,7 +85,7 @@ body {
 .buttons-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .buttons-container button {
@@ -98,6 +99,7 @@ button {
   background-color: #92d1aa;
   border: none;
   cursor: pointer;
+  font-size: 20px;
 }
 
 .random-notes-container input[type="number"] {
@@ -107,7 +109,7 @@ button {
 input[type="number"] {
   margin: 20px auto;
   padding: 5px;
-  font-size: 14px;
+  font-size: 20px;
   border: 0px;
   background-color: #92d1aa;
 }

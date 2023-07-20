@@ -1,8 +1,3 @@
-// TODO: use sampled piano notes instead of oscillator.
-// Possible places to download after a registration:
-// https://samplefocus.com/tag/piano-note
-// https://freesound.org/people/jobro/packs/2489/?page=3#sound
-
 // Define melodies
 const melodies = [
   // Twinke Twinkle Little Star
@@ -146,7 +141,6 @@ function generateRandomMelody(numTones) {
   console.log("Scale: " + noteLabels[rootNote] + " " + (isMajor ? "major" : "minor"));
 
   const melody = [];
-  // console.log(scale);
   for (let i = 0; i < numTones; i++) {
     const randomIndex = getRandomInteger(scale.length);
     const tone = scale[randomIndex];
